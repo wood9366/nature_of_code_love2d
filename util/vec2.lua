@@ -43,6 +43,18 @@ function Vec2:new(o)
   return o
 end
 
+function Vec2:set(v)
+  if type(v) == 'table' and getmetatable(v) == Vec2 then
+    self.x = v.x
+    self.y = v.y
+  end
+end
+
+function Vec2:set_xy(x, y)
+  self.x = x
+  self.y = y
+end
+
 function Vec2:add(v)
   self.x = self.x + v.x
   self.y = self.y + v.y
